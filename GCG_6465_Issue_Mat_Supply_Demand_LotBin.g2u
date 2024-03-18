@@ -1,0 +1,1318 @@
+Program.Sub.ScreenSU.Start
+Gui.f_IssMat..Create
+Gui.f_IssMat..Caption("Issue Material")
+Gui.f_IssMat..Size(15360,6060)
+Gui.f_IssMat..MinX(15360)
+Gui.f_IssMat..MinY(6060)
+Gui.f_IssMat..Position(0,0)
+Gui.f_IssMat..BackColor(-2147483633)
+Gui.f_IssMat..MousePointer(0)
+Gui.f_IssMat..Event(UnLoad,f_IssMat_UnLoad)
+Gui.f_IssMat..AlwaysOnTop(True)
+Gui.f_IssMat.GsGcIssMat.Create(GsGridControl)
+Gui.f_IssMat.GsGcIssMat.Size(14820,3960)
+Gui.f_IssMat.GsGcIssMat.Position(135,315)
+Gui.f_IssMat.GsGcIssMat.Anchor(15)
+Gui.f_IssMat.GsGcIssMat.Event(CellValueChanged,GsGcIssMat_CellValueChanged)
+Gui.f_IssMat.GsGcIssMat.Event(RowCellClick,GsGcIssMat_RowCellClick)
+Gui.f_IssMat.cmdIssMat.Create(Button)
+Gui.f_IssMat.cmdIssMat.Size(2820,375)
+Gui.f_IssMat.cmdIssMat.Position(150,4335)
+Gui.f_IssMat.cmdIssMat.Caption("Issue Material")
+Gui.f_IssMat.cmdIssMat.Event(Click,cmdIssMat_Click)
+Gui.f_IssMat.cmdIssMat.Anchor(6)
+Gui.f_IssMat.cmdIssMat.Enabled(False)
+Gui.f_IssMat.cmdIssMat.Visible(False)
+Gui.f_IssMat.txtEstVol.Create(TextBox,"",True,1230,300,0,6540,4800,False,2,"Arial",8,-2147483643,1)
+Gui.f_IssMat.txtEstVol.Anchor(6)
+Gui.f_IssMat.lbl1.Create(Label,"Total Estimated",True,1230,255,0,6540,4485,True,0,"Arial",8,-2147483633,0)
+Gui.f_IssMat.lbl1.Anchor(6)
+Gui.f_IssMat.lbl2.Create(Label,"Total Actual",True,1020,255,0,8550,4485,True,0,"Arial",8,-2147483633,0)
+Gui.f_IssMat.lbl2.Anchor(6)
+Gui.f_IssMat.txtActVol.Create(TextBox,"",True,1215,300,0,8460,4800,True,2,"Arial",8,-2147483643,1)
+Gui.f_IssMat.txtActVol.Anchor(6)
+Gui.f_IssMat.txtActVol.Event(LostFocus,txtActVol_LostFocus)
+Gui.f_IssMat.txtUM.Create(TextBox,"",True,1215,300,0,10290,4800,False,2,"Arial",8,-2147483643,1)
+Gui.f_IssMat.txtUM.Anchor(6)
+Gui.f_IssMat.lbl3.Create(Label,"Unit of Measure",True,1305,255,0,10260,4485,True,0,"Arial",8,-2147483633,0)
+Gui.f_IssMat.lbl3.Anchor(6)
+Gui.f_IssMat.cmdIssMatLB.Create(Button)
+Gui.f_IssMat.cmdIssMatLB.Size(2820,375)
+Gui.f_IssMat.cmdIssMatLB.Position(150,4770)
+Gui.f_IssMat.cmdIssMatLB.Anchor(6)
+Gui.f_IssMat.cmdIssMatLB.Caption("Issue Material by Lot/Bin")
+Gui.f_IssMat.cmdIssMatLB.Event(Click,cmdIssMatLB_Click)
+Gui.f_IssMat.cmdRepMat.Create(Button)
+Gui.f_IssMat.cmdRepMat.Size(2820,375)
+Gui.f_IssMat.cmdRepMat.Position(3330,4770)
+Gui.f_IssMat.cmdRepMat.Anchor(6)
+Gui.f_IssMat.cmdRepMat.Caption("Replace Material")
+Gui.f_IssMat.cmdRepMat.Event(Click,cmdRepMat_Click)
+Gui.MultiLot..Create
+Gui.MultiLot..Caption("Material Lot/Bin for Selected Jobs")
+Gui.MultiLot..Size(15315,10575)
+Gui.MultiLot..MinX(0)
+Gui.MultiLot..MinY(0)
+Gui.MultiLot..Position(0,0)
+Gui.MultiLot..BackColor(-2147483633)
+Gui.MultiLot..MousePointer(0)
+Gui.MultiLot..Event(UnLoad,MultiLot_UnLoad)
+Gui.MultiLot..MaxButton(False)
+Gui.MultiLot..Sizeable(False)
+Gui.MultiLot..AlwaysOnTop(True)
+Gui.MultiLot.GsGcLot.Create(GsGridControl)
+Gui.MultiLot.GsGcLot.Size(15105,9555)
+Gui.MultiLot.GsGcLot.Position(15,30)
+Gui.MultiLot.GsGcLot.Event(CellValueChanged,GsGcLot_CellValueChanged)
+Gui.MultiLot.cmdJobIssue.Create(Button)
+Gui.MultiLot.cmdJobIssue.Size(1500,375)
+Gui.MultiLot.cmdJobIssue.Position(13530,9660)
+Gui.MultiLot.cmdJobIssue.Caption("Issue to Job")
+Gui.MultiLot.cmdJobIssue.FontStyle(True,False,False,False,False)
+Gui.MultiLot.cmdJobIssue.Event(Click,cmdJobIssue_Click)
+Gui.MultiLot.lblMatch.Create(Label,"Qty to Match:",True,1185,255,0,8220,9750,True,1,"Arial",8,-2147483633,0)
+Gui.MultiLot.lblMatch.FontStyle(True,False,False,False,False)
+Gui.MultiLot.txtMatch.Create(TextBox,"",True,1215,300,0,9450,9675,False,2,"Arial",8,-2147483643,1)
+Gui.MultiLot.txtMatch.Locked(True)
+Gui.MultiLot.txtMatch.Mask("###,##0.0000")
+Gui.MultiLot.lblMatch2.Create(Label,"Qty Remaining:",True,1410,255,0,10755,9750,True,1,"Arial",8,-2147483633,0)
+Gui.MultiLot.txtRemain.Create(TextBox,"",True,1215,300,0,12225,9675,False,2,"Arial",8,-2147483643,1)
+Gui.MultiLot.txtRemain.Locked(True)
+Gui.MultiLot.txtRemain.Mask("###,##0.0000")
+Gui.RepMat..Create
+Gui.RepMat..Caption("Replace Material")
+Gui.RepMat..Size(15360,6360)
+Gui.RepMat..MinX(0)
+Gui.RepMat..MinY(0)
+Gui.RepMat..Position(0,0)
+Gui.RepMat..BackColor(-2147483633)
+Gui.RepMat..MaxButton(False)
+Gui.RepMat..MousePointer(0)
+Gui.RepMat..Sizeable(False)
+Gui.RepMat..Event(UnLoad,RepMat_UnLoad)
+Gui.RepMat..AlwaysOnTop(True)
+Gui.RepMat.GsGcRepMat.Create(GsGridControl)
+Gui.RepMat.GsGcRepMat.Size(15075,4845)
+Gui.RepMat.GsGcRepMat.Position(0,45)
+Gui.RepMat.GsGcRepMat.Event(CellValueChanged,GsGcRepMat_CellValueChanged)
+Gui.RepMat.cmdSubMat.Create(Button)
+Gui.RepMat.cmdSubMat.Size(2460,375)
+Gui.RepMat.cmdSubMat.Position(12630,5385)
+Gui.RepMat.cmdSubMat.Caption("Replace Material")
+Gui.RepMat.cmdSubMat.Event(Click,cmdSubMat_Click)
+Gui.RepMat.lblPartOld.Create(Label,"Old Part:",True,750,255,0,30,5070,True,0,"Arial",8,-2147483633,0)
+Gui.RepMat.txtPartOld.Create(TextBox,"",True,1605,300,0,810,4980,False,0,"Arial",8,-2147483643,1)
+Gui.RepMat.txtDescOld.Create(TextBox,"",True,3105,300,0,2490,4980,False,0,"Arial",8,-2147483643,1)
+Gui.RepMat.lblPartOld2.Create(Label,"New Part:",True,885,255,0,5670,5070,True,0,"Arial",8,-2147483633,0)
+Gui.RepMat.txtPartNew.Create(TextBox,"",True,1605,300,0,6585,4980,True,0,"Arial",8,-2147483643,1)
+Gui.RepMat.txtPartNew.Event(Change,txtPartNew_Change)
+Gui.RepMat.txtDescNew.Create(TextBox,"",True,3105,300,0,8265,4980,False,0,"Arial",8,-2147483643,1)
+Gui.RepMat.cmdBrowsePart.Create(Button)
+Gui.RepMat.cmdBrowsePart.Size(375,375)
+Gui.RepMat.cmdBrowsePart.Position(11940,4950)
+Gui.RepMat.cmdBrowsePart.Caption("BROWSE")
+Gui.RepMat.cmdBrowsePart.Event(Click,cmdBrowsePart_Click)
+Gui.RepMat.lbl1.Create(Label,"Schedule Direction:",True,1530,255,0,12855,5070,True,0,"Arial",8,-2147483633,0)
+Gui.RepMat.ddlSched.Create(DropDownList)
+Gui.RepMat.ddlSched.Size(630,330)
+Gui.RepMat.ddlSched.Position(14430,4965)
+Gui.RepMat.txtUMNew.Create(TextBox,"",True,450,300,0,11430,4980,False,2,"Arial",8,-2147483643,1)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.fEstimate.Declare(Float)
+v.Global.fActual.Declare(Float)
+v.Global.fActualPrev.Declare(Float)
+v.Global.fTotDiff.Declare(Float)
+v.Global.sPart.Declare(String)
+v.Global.sRev.Declare(String)
+v.Global.sLoc.Declare(String)
+v.Global.sUM.Declare(String)
+v.Global.sPartRev.Declare(String)
+v.Global.fQtyMatch.Declare(float)
+v.Global.fQtyPrev.Declare
+v.Global.fQtyIssue.Declare
+v.Global.sLot.Declare
+v.Global.sBin.Declare
+v.Global.sHeat.Declare
+v.Global.sSerial.Declare
+Program.External.Include.Library("450100.lib")
+Program.External.Include.Library("6008.lib")
+Program.External.Include.Library("500030.lib")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Robert Cole
+'Created: 8/20/2021
+'From the script 1 button on Inventory > View > Supply and Demand open up a grid that will list all the jobs in the demand screen.
+'User will then enter a value for the total actual amount and we will issue material based on that.
+'GCG_5168_Issue_Mat_Supply_Demand.g2u 
+
+F.Intrinsic.Control.Try
+V.Local.sError.Declare(String, "")
+
+v.Local.sSQL.Declare(String)
+v.Local.sScriptbuttons.Declare
+v.Local.i.Declare
+v.local.iScriptRow.Declare
+v.Local.iBDFRow.Declare
+v.Local.sBDF.Declare
+
+gui.RepMat.ddlSched.AddItem("B")
+gui.RepMat.ddlSched.AddItem("F")
+gui.RepMat.ddlSched.Text("B")
+
+f.Intrinsic.Control.SelectCase(v.Caller.Hook)
+
+'change script1 button text with populate hook #14045  on ins500 screen
+f.Intrinsic.Control.Case("14045")
+	v.Passed.000252.Set("Issue Material")
+	f.Intrinsic.Control.End
+	
+'when user clicks on script1 button 
+f.Intrinsic.Control.Case("14070")
+
+	v.Global.sPart.Set(v.Passed.000003)
+	v.Global.sRev.Set(v.Passed.000099)
+	v.Global.sLoc.Set(v.Passed.000004)
+	v.Global.sUM.Set(v.Passed.000007)
+	F.Intrinsic.String.GSSPartString(v.Global.sPart,v.Global.sRev,v.Global.sPartRev)
+	'open DB connection
+	f.ODBC.Connection!Con.OpenCompanyConnection
+	f.Intrinsic.Control.CallSub(IssMat)
+	
+f.Intrinsic.Control.Case("52000")
+
+	f.Intrinsic.BDF.Load("SupplyAndDemand-AccordionControlNavigation-bdf","SupplyAndDemand-AccordionControlNavigation-bdf")
+	f.Intrinsic.BDF.Clone("SupplyAndDemand-AccordionControlNavigation-bdf","Clone")
+	f.Intrinsic.BDF.ReadRowCount("SupplyAndDemand-AccordionControlNavigation-bdf",v.Local.iBDFRow)
+	f.Intrinsic.BDF.SeekRow("SupplyAndDemand-AccordionControlNavigation-bdf",1,0,"Script 1",v.Local.iScriptRow)
+	f.Intrinsic.Math.Sub(v.Local.iBDFRow,1,v.Local.iBDFRow)
+	
+	f.Intrinsic.Control.For(v.Local.i,0,v.Local.iBDFRow,1)
+	
+		f.Intrinsic.Control.If(v.Local.i,=,v.Local.iScriptRow)
+		
+			f.Intrinsic.BDF.ReadRow("SupplyAndDemand-AccordionControlNavigation-bdf",v.Local.i,v.Local.sBDF)
+			f.Intrinsic.String.Replace(v.Local.sBDF,"Script 1","Issue Material",v.Local.sBDF)
+			f.Intrinsic.BDF.WriteRow("Clone",v.Local.sBDF)
+			
+		f.Intrinsic.Control.Else
+		
+			f.Intrinsic.BDF.ReadRow("SupplyAndDemand-AccordionControlNavigation-bdf",v.Local.i,v.Local.sBDF)
+			f.Intrinsic.BDF.WriteRow("Clone",v.Local.sBDF)
+			
+		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Next(v.Local.i)
+	
+	f.Intrinsic.BDF.Save("Clone","SupplyAndDemand-AccordionControlNavigation-bdf")
+	
+'	f.Intrinsic.BDF.ReplaceAndSave("SupplyAndDemand-AccordionControlNavigation-bdf","Script 1","Issue Material")
+	
+	f.Intrinsic.Control.End
+	
+f.Intrinsic.Control.Case("52050")
+	
+	v.Global.sPart.Set(v.Passed.PartNumber)
+	v.Global.sRev.Set(v.Passed.PartNumberRevision)
+	v.Global.sLoc.Set(v.Passed.LocationCode)
+	v.Global.sUM.Set(v.Passed.SupplyAndDemand-TextEditUnitOfMeasureCode)
+	F.Intrinsic.String.GSSPartString(v.Global.sPart,v.Global.sRev,v.Global.sPartRev)
+	'open DB connection
+	f.ODBC.Connection!Con.OpenCompanyConnection
+	f.Intrinsic.Control.CallSub(IssMat)
+	
+f.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+    F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    f.Intrinsic.Control.CallSub(f_Inventory_DashBoard_Unload)
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.IssMat.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare(String, "")
+
+v.Local.sSQL.Declare(String)
+v.Local.sPart.Declare(String)
+v.Local.sExpression.Declare(String)
+
+f.Intrinsic.Control.If(v.DataTable.dtIssMat.Exists,=,true)
+	f.Data.DataView.Close("dtIssMat","dvIssMat")
+	f.Data.DataTable.Close("dtIssMat")
+	gui.f_IssMat.txtEstVol.Text("")
+	v.Global.fEstimate.Set(0)
+	gui.f_IssMat.txtActVol.Text("")
+	v.Global.fActual.Set(0)
+	v.Global.fActualPrev.Set(0)
+f.Intrinsic.Control.EndIf
+
+'use the convert(0,sql_bit) to set up a checkbox type column in the datatable
+f.Intrinsic.String.Build("SELECT CONVERT(0,SQL_BIT) AS SelectJob , JOB, SUFFIX, SEQ, (HOURS_ESTIMATED - HOURS_ACTUAL) AS HOURS_ESTIMATED, HOURS_ACTUAL, DESCRIPTION, LMO, DATE_START, DATE_DUE FROM V_JOB_OPERATIONS WHERE PART = '{0}' AND FLAG_CLOSED <> 'Y'",v.Global.sPartRev.PSQLFriendly,v.Local.sSQL)
+
+'create a datatable dtIssMat from v_job_operations and use sql to get the data
+f.Data.DataTable.CreateFromSQL("dtIssMat","Con",v.Local.sSQL,TRUE)
+' add an expression column so the job, suffix, all get sorted together
+f.Data.DataTable.AddExpressionColumn("dtIssMat","JobSuffix","String","[JOB] + '-' + [SUFFIX]")
+'to add more columns manually
+f.Data.DataTable.AddColumn("dtIssMat","Actual","Float")
+f.Data.DataTable.AddColumn("dtIssMat","Percentage","Float")
+f.Data.DataTable.AddColumn("dtIssMat","Difference","Float")
+f.Data.DataTable.AddColumn("dtIssMat","TotAmount","Float")
+f.Data.DataTable.AddColumn("dtIssMat","CloseJob","Boolean")
+f.Data.DataTable.SetValue("dtIssMat",-1,"CloseJob",false)
+
+'create a view of the rows
+f.Data.DataView.Create("dtIssMat","dvIssMat",22)
+'create gridview for gridcontrol from dataview
+gui.f_IssMat.GsGcIssMat.AddGridviewFromDataview("gvIssMat","dtIssMat","dvIssMat")
+
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","DESCRIPTION","Visible",false)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","LMO","Visible",false)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","HOURS_ACTUAL","Visible",false)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","DATE_START","Visible",false)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","DATE_DUE","Visible",false)
+'change grid column names
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SelectJob","Caption","Select Jobs")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","JOB","Caption","Job")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SUFFIX","Caption","Suffix")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SEQ","Caption","Sequence")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","HOURS_ESTIMATED","Caption","Estimated Quantity")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Actual","Caption","Actual Quantity")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Percentage","Caption","Percentage")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Difference","Caption","Difference")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","TotAmount","Caption","Amount to Issue")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","CloseJob","Caption","Closed")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","JobSuffix","Caption","Job-Suffix")
+'bold columns
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SelectJob","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","JOB","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SUFFIX","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SEQ","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","HOURS_ESTIMATED","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Actual","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Percentage","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Difference","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","TotAmount","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","CloseJob","HeaderFontBold",True)
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","JobSuffix","HeaderFontBold",True)
+'center columnnames
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SelectJob","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","JOB","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SUFFIX","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SEQ","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","HOURS_ESTIMATED","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Actual","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Percentage","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Difference","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","TotAmount","HeaderHAlignment","Center")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","CloseJob","HeaderHAlignment","Center")
+'format grid columns
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Actual","DisplayCustomNumeric","##.0000")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Percentage","DisplayCustomNumeric","###.00%")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Difference","DisplayCustomNumeric","##.0000")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","TotAmount","DisplayCustomNumeric","##.0000")
+'let user select the job checkbox and closed checkbox
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","SelectJob","ReadOnly","False")
+'gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","Actual","ReadOnly","False")
+gui.f_IssMat.GsGcIssMat.SetColumnProperty("gvIssMat","CloseJob","ReadOnly","False")
+gui.f_IssMat.txtUM.Text(v.Global.sUM)
+
+'set the mainview of the grid control
+gui.f_IssMat.GsGcIssMat.MainView("gvIssMat")
+
+'show the screen
+gui.f_IssMat..Show
+'get the previous grid control settings
+f.Intrinsic.Control.CallSub(Deserialize)
+
+F.Intrinsic.Control.Catch
+    F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    f.Intrinsic.Control.CallSub(f_Inventory_DashBoard_Unload)
+F.Intrinsic.Control.EndTry
+Program.Sub.IssMat.End
+
+Program.Sub.f_IssMat_Drop.Start
+Program.Sub.f_IssMat_Drop.End
+
+Program.Sub.cmdIssMat_Click.Start
+v.Local.iRow.Declare(Long)
+v.Local.iCount.Declare(Long)
+v.Local.iIndex.Declare(Long)
+v.Local.iZero.Declare(Long)
+v.Local.fAmount.Declare(Float)
+v.Local.sSql.Declare(String)
+v.Local.iDate.Declare(Long)
+v.Local.bContainsDecimal.Declare(Boolean)
+v.Local.iReturn.Declare(Long)
+
+'add rows to the library table 450100 so we can issue material with callwrapper 450100
+f.Intrinsic.Control.For(v.Local.iRow,0,v.DataView.dtIssMat!dvIssMat.RowCount--,1)   
+   f.Intrinsic.Control.If(v.Dataview.dtIssMat!dvIssMat(v.Local.iRow).SelectJob!FieldVal,=,True)
+'if user enters a whole number like 2400 then we need to multiply by 10000, if they enter a number like 2400.25 then we just use that number   
+   F.Intrinsic.String.IsInString(v.DataView.dtIssMat!dvIssMat(v.Local.iRow).TotAmount!fieldval,".",True,V.Local.bContainsDecimal)
+      f.Intrinsic.Control.If(V.Local.bContainsDecimal)
+         v.Local.fAmount.Set(v.DataView.dtIssMat!dvIssMat(v.Local.iRow).TotAmount!fieldvalFloat)
+      f.Intrinsic.Control.Else     
+         f.Intrinsic.Math.Mult(v.DataView.dtIssMat!dvIssMat(v.Local.iRow).TotAmount!fieldval,10000,v.Local.fAmount)
+      f.Intrinsic.Control.EndIf       
+      f.Data.DataTable.AddRow("450100","Part",v.Global.sPart,"Rev",v.Global.sRev,"Location",v.Global.sLoc.Trim,"Quantity",v.Local.fAmount,"Lot","","Bin","","Heat","","Serial","","WONumber",v.DataView.dtIssMat!dvIssMat(v.Local.iRow).JOB!fieldval,"WOSuffix",v.DataView.dtIssMat!dvIssMat(v.Local.iRow).SUFFIX!fieldval,"WOSeq",v.DataView.dtIssMat!dvIssMat(v.Local.iRow).SEQ!fieldval)
+   f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Next(v.Local.iRow) 
+
+f.Intrinsic.Control.CallSub(450100Sync)
+' we will not close the sequences where the actual quantity is < estimated quantity, the user will have to check the closed job box 
+'need to check job_trans_err table - if line is found we were not successful, so leave line in the grid, else delete this row from the grid
+'read thru the table backwards so when we delete a line the correct line is deleted
+f.Intrinsic.Control.For(v.Local.iRow,v.DataView.dtIssMat!dvIssMat.RowCount--,0,-1)   
+     f.Intrinsic.Control.If(v.Dataview.dtIssMat!dvIssMat(v.Local.iRow).SelectJob!FieldVal,=,True, "AND" ,v.Dataview.dtIssMat!dvIssMat(v.Local.iRow).CloseJob!FieldVal,=,True) 
+       v.Local.iDate.Set(v.Ambient.Date.FormatYYYYMMDD)       
+        f.Intrinsic.String.Build("SELECT COUNT(JOB) FROM V_JOB_TRANS_ERR WHERE JOB = '{0}' AND SUFFIX = '{1}' AND SEQ = '{2}' AND PART = '{3}' AND TRAN_CODE = 'J55' AND ERR_DATE = {4} ",v.DataView.dtIssMat!dvIssMat(v.Local.iRow).JOB!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.iRow).SUFFIX!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.iRow).SEQ!fieldval,v.Global.sPartRev.Trim ,v.Local.iDate, v.Local.sSql)   
+        f.ODBC.Connection!Con.ExecuteandReturn(v.Local.sSql,v.Local.iCount)
+        f.Intrinsic.Control.If(v.Local.iCount,=,0)
+           f.Intrinsic.String.Build("UPDATE JOB_OPERATIONS SET FLAG_CLOSED = 'Y' WHERE JOB = '{0}' AND SUFFIX = '{1}' AND SEQ = '{2}' AND PART = '{3}'",v.DataView.dtIssMat!dvIssMat(v.Local.iRow).JOB!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.iRow).SUFFIX!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.iRow).SEQ!fieldval,v.Global.sPartRev.Trim ,v.Local.sSql) 
+           f.ODBC.Connection!Con.Execute(V.Local.sSQL)       
+'Greg B said to delete line from job_commitments
+           f.Intrinsic.String.Build("DELETE FROM JOB_COMMITMENTS  WHERE JOB = '{0}' AND SUFFIX = '{1}' AND SEQUENCE = '{2}' AND PART = '{3}'",v.DataView.dtIssMat!dvIssMat(v.Local.iRow).JOB!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.iRow).SUFFIX!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.iRow).SEQ!fieldval,v.Global.sPartRev.Trim ,v.Local.sSql) 
+           f.ODBC.Connection!Con.Execute(V.Local.sSQL) 
+           f.Data.DataTable.DeleteRow("dtIssMat",v.Local.iRow) 
+     f.Intrinsic.Control.EndIf  
+     f.Intrinsic.Control.EndIf   
+f.Intrinsic.Control.Next(v.Local.iRow)
+f.Data.DataTable.AcceptChanges("dtIssMat")
+v.Global.fEstimate.Set(v.Local.iZero)
+gui.f_IssMat.txtEstVol.Text(v.Local.iZero)
+gui.f_IssMat.txtActVol.Text(v.Local.iZero)
+f.Intrinsic.Control.If(v.Local.iCount,=,0)
+   f.Intrinsic.UI.Msgbox("The material was issued")
+f.Intrinsic.Control.Else
+   f.Intrinsic.UI.Msgbox("The material was not issued")
+f.Intrinsic.Control.EndIf
+Program.Sub.cmdIssMat_Click.End
+
+Program.Sub.f_IssMat_UnLoad.Start
+'save the settings from the gridcontrol to registry
+f.Intrinsic.Control.CallSub(Serialize)
+
+'close DB connection
+f.ODBC.Connection!Con.Close
+f.Intrinsic.Control.End
+Program.Sub.f_IssMat_UnLoad.End
+
+Program.Sub.GsGcIssMat_CellValueChanged.Start
+v.Local.fPercent.Declare(Float)
+v.Local.sExpression.Declare(String)
+v.Local.sColumn.Declare(String)
+v.Local.fEstimated.Declare(Float)
+
+'if user selects a job then add the estimated quantity to the total estimated quantity, if they unselect the job remove the amount from total estimated
+f.Intrinsic.Control.If(v.Args.Column,=,"SelectJob") 
+
+   f.Intrinsic.Control.If(V.Args.Value,=,True)    
+      gui.f_IssMat.GsGcIssMat.GetCellValueByColumnName("gvIssMat","HOURS_ESTIMATED",v.Args.RowIndex,v.Local.fEstimated)
+      f.Intrinsic.Math.Add(v.Local.fEstimated,v.Global.fEstimate,v.Global.fEstimate)   
+      
+   f.Intrinsic.Control.Else
+   
+      gui.f_IssMat.GsGcIssMat.GetCellValueByColumnName("gvIssMat","HOURS_ESTIMATED",v.Args.RowIndex,v.Local.fEstimated)
+      f.Intrinsic.Math.Sub(v.Global.fEstimate,v.Local.fEstimated,v.Global.fEstimate)
+   f.Intrinsic.Control.EndIf
+   
+   gui.f_IssMat.txtEstVol.Text(v.Global.fEstimate)
+   
+f.Intrinsic.Control.EndIf
+Program.Sub.GsGcIssMat_CellValueChanged.End
+
+Program.Sub.GsGcIssMat_RowCellClick.Start
+Program.Sub.GsGcIssMat_RowCellClick.End
+
+Program.Sub.txtActVol_Change.Start
+Program.Sub.txtActVol_Change.End
+
+Program.Sub.txtActVol_LostFocus.Start
+v.Local.iRow.Declare(Long)
+v.Local.fPercent.Declare(Float)
+v.Local.fTotPercent.Declare(Float)
+v.Local.fTotPercentDiff.Declare(Float)
+v.Local.fEstimated.Declare(Float)
+v.Local.fActQty.Declare(Float)
+v.Local.fDifference.Declare(Float)
+v.Local.fAmount.Declare(Float)
+v.Local.fZero.Declare(Float)
+v.Global.fActual.Set(v.Screen.f_IssMat!txtActVol.Text)
+f.Intrinsic.Control.If(v.Global.fActual,<>,v.Global.fActualPrev)
+' loop to get all the selected jobs and divide out the total actual amount entered based on jobs selected 
+   f.Intrinsic.Control.For(v.Local.iRow,0,v.DataView.dtIssMat!dvIssMat.RowCount--,1)   
+     f.Intrinsic.Control.If(v.Dataview.dtIssMat!dvIssMat(v.Local.iRow).SelectJob!FieldVal,=,True)
+        gui.f_IssMat.GsGcIssMat.GetCellValueByColumnName("gvIssMat","HOURS_ESTIMATED",v.Local.iRow,v.Local.fEstimated)
+        f.Intrinsic.Math.Div(v.Local.fEstimated,v.Global.fEstimate,v.Local.fPercent)
+        f.Intrinsic.Math.Round(v.Local.fPercent,4,v.Local.fPercent)   
+        f.Intrinsic.Math.Add(v.Local.fPercent,v.Local.fTotPercent,v.Local.fTotPercent)        
+        f.Intrinsic.Control.If(v.Local.fTotPercent,>,.9998, "AND" , v.Local.fTotPercent,<,1.0002) 
+           f.Intrinsic.Control.If(v.Local.fTotPercent,=, 1.0000)
+              gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","Percentage",v.Local.iRow,v.Local.fPercent)              
+           f.Intrinsic.Control.Else
+              f.Intrinsic.Math.Sub(1.0000,v.Local.fTotPercent,v.Local.fTotPercentDiff)
+              f.Intrinsic.Math.Add(v.Local.fTotPercentDiff,v.Local.fPercent,v.Local.fPercent)
+              gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","Percentage",v.Local.iRow,v.Local.fPercent)
+            f.Intrinsic.Control.EndIf                        
+        f.Intrinsic.Control.Else
+           gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","Percentage",v.Local.iRow,v.Local.fPercent) 
+        f.Intrinsic.Control.EndIf      
+        f.Intrinsic.Math.Mult(v.Global.fActual,v.Local.fPercent,v.Local.fActqty)
+        f.Intrinsic.Control.If(v.Local.fActQty,>=,v.Local.fEstimated)
+           gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","CloseJob",v.Local.iRow,True)
+        f.Intrinsic.Control.Else
+           gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","CloseJob",v.Local.iRow,False)
+        f.Intrinsic.Control.EndIf
+        gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","Actual",v.Local.iRow,v.Local.fActqty)
+        f.Intrinsic.Math.Sub(v.Global.fActual,v.Global.fEstimate,v.Global.fTotDiff)
+        f.Intrinsic.Math.Mult(v.Global.fTotDiff,v.Local.fPercent,v.Local.fDifference)
+        gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","Difference",v.Local.iRow,v.Local.fDifference)
+        f.Intrinsic.Math.Add(v.Local.fEstimated,v.Local.fDifference,v.Local.fAmount)
+        gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","TotAmount",v.Local.iRow,v.Local.fAmount)
+     f.Intrinsic.Control.Else
+' if they user had selected this job , but now they unselected it, then I need to display 0 in the grid columns     
+        v.Local.fZero.Set(0)
+        gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","Percentage",v.Local.iRow,v.Local.fZero) 
+        gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","Actual",v.Local.iRow,v.Local.fZero)
+        gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","Difference",v.Local.iRow,v.Local.fZero)
+        gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","TotAmount",v.Local.iRow,v.Local.fZero)
+        gui.f_IssMat.GsGcIssMat.SetCellValueByColumnName("gvIssMat","CloseJob",v.Local.iRow,False)
+     f.Intrinsic.Control.EndIf
+   f.Intrinsic.Control.Next(v.Local.iRow)  
+v.Global.fActualPrev.Set(v.Global.fActual)
+f.Intrinsic.Control.EndIf
+Program.Sub.txtActVol_LostFocus.End
+
+Program.Sub.Serialize.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare	
+'save grid settings to registry	
+	gui.f_IssMat.GsGcIssMat.Serialize("gvIssMat",v.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvIssMat",6465,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.DeSerialize.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+'Delete old registry records
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvIssMat",6465,0,5,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		F.ODBC.Connection!common.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+		F.ODBC.Connection!common.Execute("Delete From Gs_Registry Where Reg_ID = 6465 And Seq < 1000;")
+		F.ODBC.Connection!common.Close
+	F.Intrinsic.Control.EndIf
+'read grid settings from registry
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvIssMat",6465,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		gui.f_IssMat.GsGcIssMat.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.DeSerialize.End
+
+Program.Sub.cmdIssMatLB_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sTitle.Declare
+v.Local.sFilter.Declare
+v.Local.fTotal.Declare
+v.Local.fSelect.Declare
+v.Local.sMSG.Declare
+v.Local.bOpt.Declare
+
+f.Data.DataTable.Compute("dtIssMat","Count(JOB)","SelectJob = True",v.Local.fSelect)
+f.Data.DataTable.Compute("dtIssMat","sum(Actual)",,v.Local.fTotal)
+
+f.Intrinsic.Control.If(v.Local.fSelect,>,0,and,v.Local.fTotal,>,0)
+
+	gui.f_IssMat..Enabled(false)
+	
+	f.Intrinsic.Control.If(v.DataTable.dtLot.Exists,=,true)
+	
+		f.Data.DataView.Close("dtLot","dvLot")
+		f.Data.DataTable.Close("dtLot")
+		
+	f.Intrinsic.Control.EndIf
+	
+	f.Global.General.ReadOption("70008",0,,v.Local.bOpt)
+	
+	f.Intrinsic.Control.SelectCase(v.Local.bOpt)
+	
+	f.Intrinsic.Control.Case(true)
+	
+		f.Intrinsic.String.Build("select left(PART,17) as PART, ltrim(right(PART,3)) as REV, LOCATION, LOT, BIN, HEAT, SERIAL_NUMBER, UNIT_COST, QUANTITY from V_ITEM_MASTER where PART = '{0}' and QUANTITY > '0'",v.Global.sPart.PSQLFriendly,v.Local.sSQL)
+		
+	f.Intrinsic.Control.Case(false)
+	
+		f.Intrinsic.String.Build("select PART, rtrim(' ') as REV, LOCATION, LOT, BIN, HEAT, SERIAL_NUMBER, UNIT_COST, QUANTITY from V_ITEM_MASTER where PART = '{0}' and QUANTITY > '0'",v.Global.sPart.PSQLFriendly,v.Local.sSQL)
+	
+	f.Intrinsic.Control.EndSelect
+	
+	f.Data.DataTable.CreateFromSQL("dtLot","con",v.Local.sSQL,true)
+	f.Data.DataTable.AddColumn("dtLot","LOT_SELECT","boolean")
+	f.Data.DataTable.AddColumn("dtLot","QTY_LOT","float")
+	f.Data.DataTable.AddColumn("dtLot","QTY_LOT_PREV","float")
+	f.Data.DataTable.SetValue("dtLot",-1,"LOT_SELECT",false)
+	f.Data.DataTable.SetValue("dtLot",-1,"QTY_LOT","0")
+	f.Data.DataTable.SetValue("dtLot",-1,"QTY_LOT_PREV","0")
+	f.Data.DataView.Create("dtLot","dvLot",22)
+	
+	gui.MultiLot.GsGcLot.AddGridviewFromDataview("gvLot","dtLot","dvLot")
+	
+	f.Intrinsic.String.Build("Material Lot/Bin(s) for Part: {0}",v.Global.sPart,v.Local.sTitle)
+	Gui.MultiLot..Caption(v.Local.sTitle)
+	
+	gui.MultiLot.txtMatch.Text(v.Local.fTotal)
+	gui.MultiLot.txtRemain.Text(v.Local.fTotal)
+	v.Global.fQtyMatch.Set(v.Local.fTotal)
+	
+	gui.MultiLot..ApplyMasks(true)
+	
+	f.Intrinsic.Control.If(v.DataTable.dtLot.RowCount,>,0)
+	
+		f.Intrinsic.Control.CallSub(Lot_Format)
+		
+		f.Intrinsic.Control.If(v.DataTable.dtLot.RowCount,=,1)
+			
+			f.Data.DataTable.SetValue("dtLot",0,"LOT_SELECT",true)
+			f.Intrinsic.Control.CallSub(GsGcLot_CellValueChanged,"Column","LOT_SELECT","RowIndex","0")
+			
+		f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.Else
+	
+		f.Intrinsic.String.Build("No Lot/Bin(s) available for Part: {0}.",v.Global.sPart,v.Local.sMSG)
+		f.Intrinsic.UI.Msgbox(v.Local.sMSG,"ERROR")
+		
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Else
+
+	f.Intrinsic.UI.Msgbox("No Jobs selected or Quantity entered.  Please select a Job or enter a Quantity.","ERROR")
+
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdIssMatLB_Click.End
+
+Program.Sub.cmdRepMat_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.fSelect.Declare
+v.Local.i.Declare
+
+f.Data.DataTable.Compute("dtIssMat","Count(JOB)","SelectJob = True",v.Local.fSelect)
+
+f.Intrinsic.Control.If(v.Local.fSelect,>,0)
+
+	gui.f_IssMat..Enabled(false)
+
+	f.Intrinsic.Control.If(v.DataTable.dtRepMat.Exists,=,true)
+	
+		f.Data.DataView.Close("dtRepMat","dvRepMat")
+		f.Data.DataTable.Close("dtRepMat")
+		
+	f.Intrinsic.Control.EndIf
+	
+	f.Data.DataView.Create("dtIssMat","dvJobSelect",22,"SelectJob = True","JOB ASC, SUFFIX ASC")
+	f.Data.DataView.ToDataTable("dtIssMat","dvJobSelect","dtRepMat",true)
+	f.Data.DataView.Close("dtIssMat","dvJobSelect")
+	
+	f.Data.DataTable.RemoveColumn("dtRepMat","Actual")
+	f.Data.DataTable.RemoveColumn("dtRepMat","Percentage")
+	f.Data.DataTable.RemoveColumn("dtRepMat","Difference")
+	f.Data.DataTable.RemoveColumn("dtRepMat","TotAmount")
+	f.Data.DataTable.RemoveColumn("dtRepMat","CloseJob")
+
+	f.Data.DataView.Create("dtRepMat","dvRepMat")
+	
+	gui.RepMat.txtPartOld.Text(v.Global.sPartRev)
+	gui.RepMat.txtDescOld.Text(v.DataTable.dtIssMat(0).DESCRIPTION!FieldValTrim)
+	
+	gui.RepMat.GsGcRepMat.AddGridviewFromDataview("gvRepMat","dtRepMat","dvRepMat")
+	
+	f.Intrinsic.Control.CallSub(RepMat_Format)
+
+f.Intrinsic.Control.Else
+           
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdRepMat_Click.End
+
+Program.Sub.RepMat_Format.Start
+'GENERATE FORMATTING FOR ALL OF THE COLUMNS IN THE GRIDVIEW
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.i.Declare
+
+gui.RepMat.GsGcRepMat.Visible(false)
+gui.RepMat.GsGcRepMat.SuspendLayout
+
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JOB","Visible",false)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SUFFIX","Visible",false)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","DESCRIPTION","Visible",false)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","LMO","Visible",false)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","DATE_START","Visible",false)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","DATE_DUE","Visible",false)
+
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","Caption","")
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","HeaderFontBold","TRUE")
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","HeaderHAlignment","CENTER")
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","CellHAlignment","CENTER")
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","MinWidth",)
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","MaxWidth",)
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","DisplayCustomNumeric","$###,##0.00")
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","ReadOnly","TRUE")
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","AllowEdit","FALSE")
+'gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","Caption","Sel")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","HeaderFontBold","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","HeaderHAlignment","CENTER")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","CellHAlignment","CENTER")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","MinWidth",45)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","MaxWidth",45)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","ReadOnly","FALSE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","AllowEdit","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SelectJob","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JobSuffix","Caption","Job")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JobSuffix","HeaderFontBold","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JobSuffix","HeaderHAlignment","CENTER")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JobSuffix","CellHAlignment","CENTER")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JobSuffix","MinWidth",85)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JobSuffix","ReadOnly","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JobSuffix","AllowEdit","FALSE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","JobSuffix","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SEQ","Caption","Seq")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SEQ","HeaderFontBold","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SEQ","HeaderHAlignment","CENTER")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SEQ","CellHAlignment","CENTER")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SEQ","MinWidth",85)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SEQ","ReadOnly","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SEQ","AllowEdit","FALSE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","SEQ","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","Caption","Qty Est.")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","HeaderFontBold","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","HeaderHAlignment","CENTER")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","CellHAlignment","RIGHT")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","MinWidth",85)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","DisplayCustomNumeric","###,##0.00")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","ReadOnly","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","AllowEdit","FALSE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ESTIMATED","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","Caption","Qty Act.")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","HeaderFontBold","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","HeaderHAlignment","CENTER")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","CellHAlignment","RIGHT")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","MinWidth",85)
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","DisplayCustomNumeric","###,##0.00")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","ReadOnly","TRUE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","AllowEdit","FALSE")
+gui.RepMat.GsGcRepMat.SetColumnProperty("gvRepMat","HOURS_ACTUAL","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.RepMat.GsGcRepMat.MainView("gvRepMat")
+
+gui.RepMat.GsGcRepMat.ResumeLayout
+gui.RepMat.GsGcRepMat.Visible(true)
+
+gui.RepMat..Visible(true)
+Program.Sub.RepMat_Format.End
+
+Program.Sub.GsGcRepMat_CellValueChanged.Start
+Program.Sub.GsGcRepMat_CellValueChanged.End
+
+Program.Sub.cmdJobIssue_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.i.Declare
+v.Local.iLB.Declare
+v.Local.fIssue.Declare
+v.Local.fLotBin.Declare
+v.Local.fTotal.Declare
+v.Local.fMatch.Declare
+v.Local.sQtyIssue.Declare
+v.Local.sSQL.Declare
+v.Local.iSeq.Declare
+v.Local.sPad.Declare
+v.Local.sPart.Declare
+v.Local.sPDate.Declare
+v.Local.sName.Declare
+v.Local.sParam.Declare
+v.Local.bOpt.Declare
+v.Local.sDateClose.Declare
+
+f.Data.DataTable.Compute("dtLot","sum(QTY_LOT)","LOT_SELECT = True",v.Local.fTotal)
+
+v.Local.fMatch.Set(v.Screen.MultiLot!txtMatch.Text)
+f.Intrinsic.Control.If(v.Local.fTotal,=,v.Local.fMatch)
+
+	gui.MultiLot..Enabled(false)
+
+	f.Data.DataView.Create("dtLot","dvLotIssue",22,"LOT_SELECT = True","BIN ASC")
+	f.Data.DataView.ToDataTable("dtLot","dvLotIssue","dtIssue",true)
+	
+	f.Intrinsic.String.Format(v.Ambient.Date,"yyyy-mm-dd",v.Local.sPDate)
+	
+	gui.MultiLot..Enabled(false)
+	
+	f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dtIssMat.RowCount--,1)
+	
+		f.Intrinsic.Control.If(v.DataTable.dtIssMat(v.Local.i).SelectJob!FieldVal,=,true)
+			
+			v.Global.fQtyIssue.Set(v.DataTable.dtIssMat(v.Local.i).Actual!FieldVal)
+		
+			f.Intrinsic.Control.For(v.Local.iLB,0,v.DataTable.dtIssue.RowCount--,1)
+			
+				f.Intrinsic.Math.Sub(v.DataTable.dtIssue(v.Local.iLB).QTY_LOT!FieldVal,v.Global.fQtyIssue,v.Local.fLotBin)
+				
+				f.Intrinsic.Control.If(v.Local.fLotBin,>,0,and,v.Global.fQtyIssue,>,0)
+				
+					v.Global.sLot.Set(v.DataTable.dtIssue(v.Local.iLB).LOT!FieldValTrim)
+					v.Global.sBin.Set(v.DataTable.dtIssue(v.Local.iLB).BIN!FieldValTrim)
+					v.Global.sLoc.Set(v.DataTable.dtIssue(v.Local.iLB).LOCATION!FieldValTrim)
+					v.Global.sHeat.Set(v.DataTable.dtIssue(v.Local.iLB).HEAT!FieldValTrim)
+					v.Global.sSerial.Set(v.DataTable.dtIssue(v.Local.iLB).SERIAL_NUMBER!FieldValTrim)
+				
+					f.Intrinsic.String.Format(v.Global.fQtyIssue,"###,##0.0000",v.Local.sQtyIssue)
+	'PART (Part), REV (Rev), LOC (Location), QTY_ISSUE (Quantity), LOT_ISSUE (Lot), BIN (Bin), HEAT (Heat), SERIAL_NUMBER (Serial), JOB (WONumber), SUFFIX (WOSuffix), SEQ (WOSeq)
+					f.Data.DataTable.AddRow("450100","PART",v.Global.sPart,"Rev",v.Global.sRev,"Location",v.Global.sLoc,"Quantity",v.Local.sQtyIssue,"Lot",v.Global.sLot,"Bin",v.Global.sBin,"Heat",v.Global.sHeat,"Serial",v.Global.sSerial,"WONumber",v.DataTable.dtIssMat(v.Local.i).JOB!FieldVal,"WOSuffix",v.DataTable.dtIssMat(v.Local.i).SUFFIX!FieldVal,"WOSeq",v.DataTable.dtIssMat(v.Local.i).SEQ!FieldVal)
+					
+					f.Intrinsic.Math.Sub(v.Global.fQtyIssue,v.DataTable.dtIssue(v.Local.iLB).QTY_LOT!FieldVal,v.Global.fQtyIssue)
+					f.Data.DataTable.SetValue("dtIssue",v.Local.iLB,"QTY_LOT",v.Local.fLotBin)
+					
+				f.Intrinsic.Control.ElseIf(v.DataTable.dtIssue(v.Local.iLB).QTY_LOT!FieldVal,>,0,and,v.Global.fQtyIssue,>,0)
+				
+					v.Global.sLot.Set(v.DataTable.dtIssue(v.Local.iLB).LOT!FieldValTrim)
+					v.Global.sBin.Set(v.DataTable.dtIssue(v.Local.iLB).BIN!FieldValTrim)
+					v.Global.sLoc.Set(v.DataTable.dtIssue(v.Local.iLB).LOCATION!FieldValTrim)
+					v.Global.sHeat.Set(v.DataTable.dtIssue(v.Local.iLB).HEAT!FieldValTrim)
+					v.Global.sSerial.Set(v.DataTable.dtIssue(v.Local.iLB).SERIAL_NUMBER!FieldValTrim)
+				
+					f.Intrinsic.String.Format(v.DataTable.dtIssue(v.Local.iLB).QTY_LOT!FieldVal,"###,##0.0000",v.Local.sQtyIssue)
+	'PART (Part), REV (Rev), LOC (Location), QTY_ISSUE (Quantity), LOT_ISSUE (Lot), BIN (Bin), HEAT (Heat), SERIAL_NUMBER (Serial), JOB (WONumber), SUFFIX (WOSuffix), SEQ (WOSeq)
+					f.Data.DataTable.AddRow("450100","PART",v.Global.sPart,"Rev",v.Global.sRev,"Location",v.Global.sLoc,"Quantity",v.Local.sQtyIssue,"Lot",v.Global.sLot,"Bin",v.Global.sBin,"Heat",v.Global.sHeat,"Serial",v.Global.sSerial,"WONumber",v.DataTable.dtIssMat(v.Local.i).JOB!FieldVal,"WOSuffix",v.DataTable.dtIssMat(v.Local.i).SUFFIX!FieldVal,"WOSeq",v.DataTable.dtIssMat(v.Local.i).SEQ!FieldVal)
+					
+					f.Intrinsic.Math.Sub(v.Global.fQtyIssue,v.DataTable.dtIssue(v.Local.iLB).QTY_LOT!FieldVal,v.Global.fQtyIssue)
+					f.Data.DataTable.SetValue("dtIssue",v.Local.iLB,"QTY_LOT",0)
+				
+				f.Intrinsic.Control.EndIf
+					
+			f.Intrinsic.Control.Next(v.Local.iLB)
+			
+			f.Intrinsic.Control.If(v.DataTable.dtIssMat(v.Local.i).CloseJob!FieldVal,=,true)
+			
+				v.Local.sDateClose.Set(v.Ambient.Date.FormatYYMMDD)
+	           f.Intrinsic.String.Build("UPDATE JOB_OPERATIONS SET FLAG_CLOSED = 'Y', DATE_COMPLETED = '{0}' WHERE JOB = '{1}' AND SUFFIX = '{2}' AND SEQ = '{3}' AND PART = '{4}'",v.Local.sDateClose,v.DataView.dtIssMat!dvIssMat(v.Local.i).JOB!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.i).SUFFIX!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.i).SEQ!fieldval,v.Global.sPartRev.Trim ,v.Local.sSql) 
+	           f.ODBC.Connection!Con.Execute(V.Local.sSQL)
+	           
+	           f.Intrinsic.String.Build("DELETE FROM JOB_COMMITMENTS  WHERE JOB = '{0}' AND SUFFIX = '{1}' AND SEQUENCE = '{2}' AND PART = '{3}'",v.DataView.dtIssMat!dvIssMat(v.Local.i).JOB!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.i).SUFFIX!fieldval,v.DataView.dtIssMat!dvIssMat(v.Local.i).SEQ!fieldval,v.Global.sPartRev.Trim ,v.Local.sSql) 
+	           f.ODBC.Connection!Con.Execute(V.Local.sSQL) 
+	           
+			f.Intrinsic.Control.EndIf
+			
+		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Next(v.Local.i)
+	
+	f.Data.DataView.Close("dtLot","dvLotIssue")
+	f.Data.DataTable.Close("dtIssue")
+	
+	f.Intrinsic.Control.CallSub(450100Sync)
+	
+	f.Intrinsic.UI.Msgbox("Material has been issued to the selected Work Orders.","SUCCESS!")
+	
+	gui.MultiLot..Enabled(true)
+	
+	f.Intrinsic.Control.CallSub(IssMat)
+	
+	f.Intrinsic.Control.CallSub(MultiLot_UnLoad)
+	
+f.Intrinsic.Control.Else
+
+	f.Intrinsic.UI.Msgbox("Qty entered with the Lot/Bin(s) selected does not equal the required quantity.  Please adjust and try again.","ERROR")
+
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdJobIssue_Click.End
+
+Program.Sub.Lot_Format.Start
+'GENERATE FORMATTING FOR ALL OF THE COLUMNS IN THE GRIDVIEW
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.i.Declare
+
+gui.MultiLot.GsGcLot.Visible(false)
+gui.MultiLot.GsGcLot.SuspendLayout
+
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","Caption","")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","HeaderFontBold","TRUE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","HeaderHAlignment","CENTER")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","CellHAlignment","CENTER")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","MinWidth",)
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","MaxWidth",)
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","DisplayCustomNumeric","$###,##0.00")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","ReadOnly","TRUE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","AllowEdit","FALSE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT_PREV","Visible",false)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","Caption","Sel")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","MinWidth",45)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","MaxWidth",45)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","ReadOnly","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","AllowEdit","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT_SELECT","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","Visible",false)
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","Caption","Part")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","HeaderFontBold","TRUE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","HeaderHAlignment","CENTER")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","CellHAlignment","CENTER")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","MinWidth",85)
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","ReadOnly","TRUE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","AllowEdit","FALSE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","PART","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","Visible",false)
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","Caption","Rev")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","HeaderFontBold","TRUE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","HeaderHAlignment","CENTER")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","CellHAlignment","CENTER")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","MinWidth",85)
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","ReadOnly","TRUE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","AllowEdit","FALSE")
+'gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","REV","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOCATION","Caption","Loc")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOCATION","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOCATION","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOCATION","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOCATION","MinWidth",45)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOCATION","ReadOnly","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOCATION","AllowEdit","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOCATION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT","Caption","Lot")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT","MinWidth",85)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT","ReadOnly","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT","AllowEdit","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","LOT","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","BIN","Caption","Bin")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","BIN","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","BIN","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","BIN","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","BIN","MinWidth",85)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","BIN","ReadOnly","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","BIN","AllowEdit","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","BIN","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","HEAT","Caption","Heat")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","HEAT","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","HEAT","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","HEAT","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","HEAT","MinWidth",85)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","HEAT","ReadOnly","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","HEAT","AllowEdit","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","HEAT","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","SERIAL_NUMBER","Caption","Serial")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","SERIAL_NUMBER","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","SERIAL_NUMBER","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","SERIAL_NUMBER","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","SERIAL_NUMBER","MinWidth",85)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","SERIAL_NUMBER","ReadOnly","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","SERIAL_NUMBER","AllowEdit","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","SERIAL_NUMBER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","Caption","Unit Cost")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","MinWidth",85)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","DisplayCustomNumeric","###,##0.00")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","ReadOnly","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","AllowEdit","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","UNIT_COST","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","Caption","Qty Avail")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","MinWidth",85)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","DisplayCustomNumeric","###,##0.0000")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","ReadOnly","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","AllowEdit","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QUANTITY","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","Caption","Qty Issue")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","HeaderFontBold","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","HeaderHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","CellHAlignment","CENTER")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","MinWidth",85)
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","DisplayCustomNumeric","###,##0.0000")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","ReadOnly","FALSE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","AllowEdit","TRUE")
+gui.MultiLot.GsGcLot.SetColumnProperty("gvLot","QTY_LOT","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.MultiLot.GsGcLot.MainView("gvLot")
+
+gui.MultiLot.GsGcLot.ResumeLayout
+gui.MultiLot.GsGcLot.Visible(true)
+
+gui.MultiLot..Visible(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.Lot_Format.End
+
+Program.Sub.MultiLot_UnLoad.Start
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.MultiLot..Visible(false)
+
+gui.f_IssMat..Enabled(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.MultiLot_UnLoad.End
+
+Program.Sub.GsGcLot_CellValueChanged.Start
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.fQTY.Declare
+v.Local.fQtyNew.Declare
+v.Local.fQtyTtl.Declare
+v.Local.fMatch.Declare
+
+v.Local.fMatch.Set(v.Screen.MultiLot!txtMatch.Text)
+
+v.Local.fQTY.Set(v.DataTable.dtLot(v.Args.RowIndex).QTY_LOT!FieldVal)
+v.Global.fQtyPrev.Set(v.DataTable.dtLot(v.Args.RowIndex).QTY_LOT_PREV!FieldVal)
+f.Intrinsic.Math.Sub(v.Global.fQtyPrev,v.Local.fQTY,v.Local.fQtyNew)
+f.Intrinsic.Math.Add(v.Global.fQtyMatch,v.Local.fQTY,v.Local.fQtyTtl)
+
+f.Intrinsic.Control.If(v.Args.Column,=,"LOT_SELECT")
+
+	f.Intrinsic.Control.If(v.Global.fQtyMatch,>,0,and,v.Global.fQtyPrev,=,0)
+
+		f.Intrinsic.Control.If(v.Global.fQtyMatch,>,v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal)
+		
+'			f.Intrinsic.UI.Msgbox("QTY Entered is greater than available QTY.  Setting to available QTY.","ERROR")
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"QTY_LOT",v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal)
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"QTY_LOT_PREV",v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal)
+			f.Intrinsic.Math.Sub(v.Global.fQtyMatch,v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal,v.Global.fQtyMatch)
+		
+		f.Intrinsic.Control.ElseIf(v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal,>,v.Global.fQtyMatch)
+		
+'			f.Intrinsic.UI.Msgbox("QTY Entered is greater than QTY required.  Setting to QTY required.","ERROR")
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"QTY_LOT",v.Global.fQtyMatch)
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"QTY_LOT_PREV",v.Global.fQtyMatch)
+			v.Global.fQtyMatch.Set(0)
+			
+		f.Intrinsic.Control.Else
+		
+			f.Intrinsic.Math.Sub(v.Global.fQtyMatch,v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal,v.Global.fQtyMatch)
+			
+		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Else
+	
+		f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"LOT_SELECT",false)
+		
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Args.Column,=,"QTY_LOT")
+	
+	f.Intrinsic.Control.If(v.Local.fQtyNew,>,0)
+		f.Intrinsic.Math.Add(v.Global.fQtyMatch,v.Global.fQtyPrev,v.Global.fQtyMatch)
+	f.Intrinsic.Control.ElseIf(v.Global.fQtyPrev,<>,0,and,v.Local.fQTY,<,v.Global.fQtyPrev)
+		f.Intrinsic.Math.Sub(v.Global.fQtyMatch,v.Local.fQtyNew,v.Global.fQtyMatch)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.Math.Add(v.Global.fQtyPrev,v.Global.fQtyMatch,v.Global.fQtyMatch)
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Global.fQtyMatch,>,0)
+	
+		f.Intrinsic.Control.If(v.Local.fQTY,>,v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal)
+		
+'			f.Intrinsic.UI.Msgbox("QTY Entered is greater than available QTY.  Setting to available QTY.","ERROR")
+			f.Intrinsic.Control.BlockEvents
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"QTY_LOT",v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal)
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"LOT_SELECT",true)
+			f.Intrinsic.Math.Sub(v.Global.fQtyMatch,v.DataTable.dtLot(v.Args.RowIndex).QUANTITY!FieldVal,v.Global.fQtyMatch)
+			f.Intrinsic.Control.UnBlockEvents
+			
+		f.Intrinsic.Control.ElseIf(v.Local.fQTY,>,v.Global.fQtyMatch)
+		
+'			f.Intrinsic.UI.Msgbox("QTY Entered is greater than QTY required.  Setting to QTY required.","ERROR")
+			f.Intrinsic.Control.BlockEvents
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"QTY_LOT",v.Global.fQtyMatch)
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"LOT_SELECT",true)
+			v.Global.fQtyMatch.Set(0)
+			f.Intrinsic.Control.UnBlockEvents
+			
+		f.Intrinsic.Control.Else
+		
+			f.Intrinsic.Control.BlockEvents
+			f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"LOT_SELECT",true)
+			f.Intrinsic.Math.Sub(v.Global.fQtyMatch,v.Local.fQTY,v.Global.fQtyMatch)
+			f.Intrinsic.Control.UnBlockEvents
+			
+		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Else
+	
+		f.Intrinsic.UI.Msgbox("No remaining Qty to issue.","ERROR")
+		f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"QTY_LOT",v.Global.fQtyPrev)
+	
+	f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.If(v.DataTable.dtLot(v.Args.RowIndex).QTY_LOT!FieldVal,=,0)
+	
+		f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"LOT_SELECT",false)
+	
+	f.Intrinsic.Control.EndIf
+	
+	f.Data.DataTable.SetValue("dtLot",v.Args.RowIndex,"QTY_LOT_PREV",v.DataTable.dtLot(v.Args.RowIndex).QTY_LOT!FieldVal)
+	
+f.Intrinsic.Control.EndIf
+
+gui.MultiLot.txtRemain.Text(v.Global.fQtyMatch)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcLot_CellValueChanged.End
+
+Program.Sub.RepMat_UnLoad.Start
+gui.RepMat..Visible(false)
+
+gui.f_IssMat..Enabled(true)
+Program.Sub.RepMat_UnLoad.End
+
+Program.Sub.cmdSubMat_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sGSSPartOld.Declare
+v.Local.sGSSPartNew.Declare
+v.Local.sReturn.Declare
+v.Local.sDateStr.Declare
+v.Local.sDateDue.Declare
+v.Local.fSelect.Declare
+v.Local.fRate.Declare
+v.Local.fQty.Declare
+v.Local.i.Declare
+
+f.Intrinsic.Control.If(v.Screen.RepMat!txtPartNew.Text,<>,"")
+
+	f.Data.DataTable.Compute("dtRepMat","Count(JOB)","SelectJob = True",v.Local.fSelect)
+	
+	f.Intrinsic.Control.If(v.Local.fSelect,>,0)
+	
+	f.Intrinsic.UI.InvokeWaitDialog("Replacing Materials...Please wait...","Loading...")
+	gui.RepMat..Enabled(false)
+	
+		f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dtRepMat.RowCount--,1)
+		
+			f.Intrinsic.Control.If(v.DataView.dtRepMat!dvRepMat(v.Local.i).SelectJob!fieldval,=,true,and,v.DataView.dtRepMat!dvRepMat(v.Local.i).HOURS_ACTUAL!fieldval,=,0)
+	
+			   f.Intrinsic.String.Build("DELETE FROM JOB_OPERATIONS WHERE JOB = '{0}' AND SUFFIX = '{1}' AND SEQ = '{2}' AND PART = '{3}'",v.DataView.dtRepMat!dvRepMat(v.Local.i).JOB!fieldval,v.DataView.dtRepMat!dvRepMat(v.Local.i).SUFFIX!fieldval,v.DataView.dtRepMat!dvRepMat(v.Local.i).SEQ!fieldval,v.Screen.RepMat!txtPartOld.Text,v.Local.sSql) 
+			   f.ODBC.Connection!Con.Execute(V.Local.sSQL)
+			   
+			   f.Intrinsic.String.Build("DELETE FROM JOB_COMMITMENTS  WHERE JOB = '{0}' AND SUFFIX = '{1}' AND SEQUENCE = '{2}' AND PART = '{3}'",v.DataView.dtRepMat!dvRepMat(v.Local.i).JOB!fieldval,v.DataView.dtRepMat!dvRepMat(v.Local.i).SUFFIX!fieldval,v.DataView.dtRepMat!dvRepMat(v.Local.i).SEQ!fieldval,v.Screen.RepMat!txtPartOld.Text,v.Local.sSql) 
+			   f.ODBC.Connection!Con.Execute(V.Local.sSQL)
+			   
+			   f.Intrinsic.String.Build("Select AMT_COST from V_INVENTORY_ALL where PART = '{0}'",v.Screen.RepMat!txtPartNew.Text,v.Local.sSQL)
+			   f.ODBC.Connection!con.ExecuteandReturn(v.Local.sSQL,v.Local.sReturn)
+			   
+			   v.Local.fRate.Set(v.Local.sReturn)
+			   
+			   f.Intrinsic.String.Build("select QTY_ORDER from V_JOB_HEADER where JOB = '{0}' AND SUFFIX = '{1}'",v.DataView.dtRepMat!dvRepMat(v.Local.i).JOB!fieldval,v.DataView.dtRepMat!dvRepMat(v.Local.i).SUFFIX!fieldval,v.Local.sSQL)
+			   f.ODBC.Connection!con.ExecuteandReturn(v.Local.sSQL,v.Local.sReturn)
+			   
+			   f.Intrinsic.Math.Div(v.DataTable.dtRepMat(v.Local.i).HOURS_ESTIMATED!FieldVal,v.Local.sReturn,v.Local.fQty)
+			   
+			   f.Intrinsic.String.Format(v.DataTable.dtRepMat(v.Local.i).DATE_START!FieldVal,"MMDDYY",v.Local.sDateStr)
+			   f.Intrinsic.String.Format(v.DataTable.dtRepMat(v.Local.i).DATE_DUE!FieldVal,"MMDDYY",v.Local.sDateDue)
+			 
+	'*JOB (WONo), SUFFIX(Suffix), SEQ(Seq), OPCODE (OpCode), SETUP (SetUp), *LMO (LMO), DESC_SEQ (OpDesc), UM (UM), PWC (PWC), ROUTER (RouterNo), ROUTER_SEQ (RouterSeq), SETUP_TIME (SetupTime), UNIT (Unit), BURDEN (Burden), HOURS_ESTIMATED (EstHrs), DATE_START "MMDDYY" (StartDate), DATE_DUE "MMDDYY" (DueDate), DATE_ORDER "MMDDYY" (OrderDate), RATE (Rate), CODE_SORT (SortCode), PROJECT (ProjGrp), USER_SIGNOFF (SignoffUser), COMPLETE_REQ "Y/N" (ComplReq), RT_SAVE "Y/N" (SaveBack2Rt), OVERLAP (Overlap)
+			f.Data.DataTable.AddRow("6008","WONo",v.DataTable.dtRepMat(v.Local.i).JOB!FieldValTrim,"Suffix",v.DataTable.dtRepMat(v.Local.i).SUFFIX!FieldValTrim,"Seq",v.DataTable.dtRepMat(v.Local.i).SEQ!FieldValTrim,"OpDesc",v.Screen.RepMat!txtDescNew.Text,"UM",v.Screen.RepMat!txtUMNew.Text,"LMO",v.DataTable.dtRepMat(v.Local.i).LMO!FieldVal,"PWC",v.Screen.RepMat!txtPartNew.Text,"Unit",v.Local.fQty,"Rate",v.Local.fRate)
+	'DATE_START (StartDate) "YYMMDD", DATE_DUE (DueDate) "YYMMDD", JOB (WONum), SUFFIX (Suffix), SEQ (Seq), SCHEDULE (Schedule) "F" "B" "H"
+			f.Data.DataTable.AddRow("500030","StartDate",v.Local.sDateStr,"DueDate",v.Local.sDateDue,"WONum",v.DataTable.dtRepMat(v.Local.i).JOB!FieldValTrim,"Suffix",v.DataTable.dtRepMat(v.Local.i).SUFFIX!FieldValTrim,"Schedule",v.Screen.RepMat!ddlSched.Text)
+		   
+		   f.Intrinsic.Control.EndIf
+	   
+	   f.Intrinsic.Control.Next(v.Local.i)
+	   
+	   f.Intrinsic.Control.CallSub(6008Sync)
+	   f.Intrinsic.Control.CallSub(500030Sync)
+	   
+	   f.Intrinsic.UI.CloseWaitDialog
+	   
+	   f.Intrinsic.UI.Msgbox("Parts have been replaced on the selected Work Orders.","SUCCESS!")
+	   
+	   gui.RepMat..Enabled(true)
+	   
+	   f.Intrinsic.Control.CallSub(IssMat)
+	   
+	   f.Intrinsic.Control.CallSub(RepMat_UnLoad)
+	           
+	f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Else
+
+	f.Intrinsic.UI.Msgbox("A new Part is required.  Please enter a new Part.","ERROR")
+
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSubMat_Click.End
+
+Program.Sub.txtPartNew_Change.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+
+f.Intrinsic.String.Build("select DESCRIPTION, UM_INVENTORY from V_INVENTORY_ALL where PART = '{0}'",v.Screen.RepMat!txtPartNew.Text,v.Local.sSQL)
+f.ODBC.Connection!con.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF.not)
+
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+	
+	gui.RepMat.txtDescNew.Text(v.Local.sRet(0))
+	gui.RepMat.txtUMNew.Text(v.Local.sRet(1))
+	
+f.Intrinsic.Control.Else
+
+	f.Intrinsic.UI.Msgbox("Part number not found.  Please enter a new part and try again.","ERROR!")
+	
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtPartNew_Change.End
+
+Program.Sub.cmdBrowsePart_Click.Start
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRet.Declare
+v.Local.sPart.Declare
+
+f.Intrinsic.UI.Browser(100,"",v.Local.sRet)
+
+f.Intrinsic.Control.If(v.Local.sRet,<>,"***CANCEL***")
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+	f.Intrinsic.String.Build("{0}{1}",v.Local.sRet(0),v.Local.sRet(1),v.Local.sPart)
+	gui.RepMat.txtPartNew.Text(v.Local.sPart)
+	gui.RepMat.txtDescNew.Text(v.Local.sRet(3))
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.CallSub(txtPartNew_Change)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdBrowsePart_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+Program.Sub.Comments.End
